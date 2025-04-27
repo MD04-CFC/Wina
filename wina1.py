@@ -3,35 +3,54 @@ import numpy as np
 from sklearn import linear_model
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import f1_score
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import train_test_split
 
 # fetch dataset 
 wine_quality = fetch_ucirepo(id=186) 
   
 
 
-def rysuj(a, prog):
+def cal(prog,a):                                                                        #skalowanie, pipeline    - !!!
     X = wine_quality.data.features 
-    y= wine_quality.data.targets 
-    x = X[a].values
+    y = wine_quality.data.targets
     y = y.values
     y = np.array([int(x >= prog) for x in y])
-
-    #logr = linear_model.LogisticRegression()
-    #logr.fit(X,y)
-
-    sns.regplot( x=x, y=y, logistic=True, ci=None, scatter_kws={'color': 'black'}, line_kws={'color': 'red'} )
-    plt.xlabel(a)
-    plt.ylabel(f"Quality >= {prog}")
-    plt.title("Logistic Regression on Wine Quality")
-    plt.show()
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train2 = X_train[[a]].values
+    X_test2 = X_test[[a]].values    
 
 
-rysuj('alcohol',6)
-rysuj("fixed_acidity",6)
-rysuj("volatile_acidity", 6)
-rysuj("citric_acid",5)
-rysuj("residual_sugar",6)
-rysuj("chlorides",4)
-rysuj("free_sulfur_dioxide",7)
-rysuj("total_sulfur_dioxide",8)
-rysuj("density",6)
+    logr = linear_model.LogisticRegression()
+    logr.fit(X_train2, y_train)
+    probs_logreg = logr.predict_proba(X_test2)
+
+
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+    probs_rf = model.predict_proba(X_test)
+
+
+    model = KNeighborsClassifier(n_neighbors=5)
+    model.fit(X_train, y_train)
+    probs_knn = model.predict_proba(X_test)
+
+
+    hybrid_probs = 0.4 * probs_logreg + 0.4 * probs_rf + 0.2 * probs_knn
+    hybrid_preds = np.argmax(hybrid_probs, axis=1)                          # indeksy najwyższych wartości wzdłuż wierszów,ale co to daje????
+
+
+
+    f1 = f1_score(y_test, hybrid_preds)
+    print(f"F1 Score: {f1:.2f}")
+
+
+
+    scores = cross_val_score(RandomForestClassifier(), X, y, cv=5, scoring='f1')
+    print(f"F1 Score średni: {np.mean(scores):.2f}")
+
+
+print(cal(6,'alcohol'))

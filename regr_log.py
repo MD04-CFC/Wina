@@ -9,20 +9,21 @@ wine_quality = fetch_ucirepo(id=186)
 
 
 
-def wspolczynniki(a, prog):
+def wspolczynniki(a, prog):                      # do poprawy 
     X = wine_quality.data.features 
     y= wine_quality.data.targets 
-    x = X[a].values
     y = y.values
     y = np.array([int(x >= prog) for x in y])
 
     logr = linear_model.LogisticRegression()
-    logr.fit(X,y)
+    #logr.fit(X,y)                              # dla wszystkich cech
+    logr.fit(X[[a]], y)                         # dla jednej cechy
 
     print(f"Współczynniki dla {a} i progu {prog}:")
     print("Współczynniki:", logr.coef_)
     print("Wyraz wolny:", logr.intercept_)
-    print("Dokładność:", logr.score(X, y))
+    print("Dokładność:", logr.score(X[[a]], y))     # na treningowych danych!!   
+   
 
 
 def rysuj(a, prog):

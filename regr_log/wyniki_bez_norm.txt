@@ -1,0 +1,110 @@
+(bez skali)
+Współczynniki dla alcohol i progu 7:
+Współczynniki: [[0.83471718]]
+Wyraz wolny: [-10.42811191]
+
+Dokładność na treningowych: 0.8127766018857033
+Dokładność na testowych: 0.8146153846153846
+
+Precyzja na treningowych: 0.22731707317073171
+Precyzja: 0.25
+
+Czułość na treningowych: 0.5628019323671497
+Czułość: 0.5478260869565217
+
+F1 na treningowych: 0.3238359972202919
+F1: 0.34332425068119893
+
+
+
+
+
+Współczynniki dla sulphates i progu 6:
+Współczynniki: [[0.58628211]]
+Wyraz wolny: [0.21385841]
+
+Dokładność na treningowych: 0.6280546469116798
+Dokładność na testowych: 0.6530769230769231
+
+Precyzja na treningowych: 1.0
+Precyzja: 1.0
+
+Czułość na treningowych: 0.6280546469116798
+Czułość: 0.6530769230769231
+
+F1 na treningowych: 0.7715400070913604
+F1: 0.790134946486738
+
+
+
+
+
+Współczynniki dla sulphates i progu 7:
+Współczynniki: [[0.61168112]]
+Wyraz wolny: [-1.73142687]
+
+Dokładność na treningowych: 0.8027708293246103
+Dokładność na testowych: 0.8061538461538461
+
+Precyzja na treningowych: 0.0
+Precyzja: 0.0
+
+
+Czułość na treningowych: 0.0
+Czułość: 0.0
+
+F1 na treningowych: 0.0
+F1: 0.0
+
+
+
+
+
+
+Współczynniki dla pH i progu 7:
+Współczynniki: [[0.3809808]]
+Wyraz wolny: [-2.63031909]
+
+Dokładność na treningowych: 0.8027708293246103
+Dokładność na testowych: 0.8061538461538461
+
+Precyzja na treningowych: 0.0
+Precyzja: 0.0
+
+
+Czułość na treningowych: 0.0
+Czułość: 0.0
+
+F1 na treningowych: 0.0
+F1: 0.0
+
+
+
+
+
+Współczynniki dla density i progu 6:
+Współczynniki: [[-2.02222648]]
+Wyraz wolny: [2.53538034]
+
+Dokładność na treningowych: 0.6280546469116798
+Dokładność na testowych: 0.6530769230769231
+
+Precyzja na treningowych: 1.0
+Precyzja: 1.0
+
+Czułość na treningowych: 0.6280546469116798
+Czułość: 0.6530769230769231
+
+F1 na treningowych: 0.7715400070913604
+F1: 0.790134946486738
+
+
+
+
+
+
+
+
+
+
+	

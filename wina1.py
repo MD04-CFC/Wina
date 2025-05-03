@@ -14,7 +14,7 @@ wine_quality = fetch_ucirepo(id=186)
   
 
 
-def cal(prog,a):                                                                        #skalowanie, pipeline    - !!!
+def cal(prog,a):                                                                        
     X = wine_quality.data.features 
     y = wine_quality.data.targets
     y = y.values
@@ -40,7 +40,7 @@ def cal(prog,a):                                                                
 
 
     hybrid_probs = 0.4 * probs_logreg + 0.4 * probs_rf + 0.2 * probs_knn
-    hybrid_preds = np.argmax(hybrid_probs, axis=1)                          # indeksy najwyższych wartości wzdłuż wierszów,ale co to daje????
+    hybrid_preds = np.argmax(hybrid_probs, axis=1)                          
 
 
 
@@ -51,6 +51,50 @@ def cal(prog,a):                                                                
 
     scores = cross_val_score(RandomForestClassifier(), X, y, cv=5, scoring='f1')
     print(f"F1 Score średni: {np.mean(scores):.2f}")
+
+
+
+
+
+def cal_skal(prog,a):                                                                        
+    X = wine_quality.data.features 
+    y = wine_quality.data.targets
+    y = y.values
+    y = np.array([int(x >= prog) for x in y])
+    X = (X - np.mean(X, axis=0)) / np.std(X, axis=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train2 = X_train[[a]].values
+    X_test2 = X_test[[a]].values    
+
+
+    logr = linear_model.LogisticRegression()
+    logr.fit(X_train2, y_train)
+    probs_logreg = logr.predict_proba(X_test2)
+
+
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+    probs_rf = model.predict_proba(X_test)
+
+
+    model = KNeighborsClassifier(n_neighbors=5)
+    model.fit(X_train, y_train)
+    probs_knn = model.predict_proba(X_test)
+
+
+    hybrid_probs = 0.4 * probs_logreg + 0.4 * probs_rf + 0.2 * probs_knn
+    hybrid_preds = np.argmax(hybrid_probs, axis=1)                          
+
+
+
+    f1 = f1_score(y_test, hybrid_preds)
+    print(f"F1 Score: {f1:.2f}")
+
+
+
+    scores = cross_val_score(RandomForestClassifier(), X, y, cv=5, scoring='f1')
+    print(f"F1 Score średni: {np.mean(scores):.2f}")
+
 
 
 print(cal(6,'alcohol'))

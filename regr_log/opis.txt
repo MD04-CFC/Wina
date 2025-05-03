@@ -1,0 +1,11 @@
+opis
+
+
+
+
+Regresja logistyczna to model klasyfikacji wystąpienia danego zdarzenia na podstawie zmiennych. Wizualizacja będzie pokazywać krzywą, a sam model będzie dawać wyniki w formacie binarnym w zależności od zmiennej i danych. 
+Tam gdzie na wykresie y będzie przekraczał 1/2, tam będzie 1 jako wynik predykcji, a poniżej 1/2 będzie oczywiście 0.
+
+Dla dobrego działania modelu musi istnieć liniowa zależność między logitem a zmienną niezależną z realnym wpływem, jak i binarna postać y.
+
+

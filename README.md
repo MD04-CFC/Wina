@@ -1,4 +1,4 @@
-# Wina
+# Wine classication
 
 # Project : wina
  project2 - MAD 2025 SGGW Computer Science: Maciej Dąbrowski, Jakub Dąbrowski, Lizaveta Brazynskaia, Oleksandr Babenkov

@@ -1,0 +1,104 @@
+Dla progu 5 :
+bez normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na treningowych: 0.9620935154897056
+Dokładność na testowych: 0.9623076923076923
+
+Precyzja na treningowych: 1.0
+Precyzja: 1.0
+
+Czułość na treningowych: 0.9620935154897056
+Czułość: 0.9623076923076923
+
+F1 na treningowych: 0.9806805923310777
+F1: 0.9807918463347707
+
+
+
+
+Dla progu 6 :
+bez normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na treningowych: 0.5185684048489513
+Dokładność na testowych: 0.46923076923076923
+
+Precyzja na treningowych: 0.2711397058823529
+Precyzja: 0.23792697290930506
+
+Czułość na treningowych: 0.8779761904761905
+Czułość: 0.8244897959183674
+
+F1 na treningowych: 0.4143258426966292
+F1: 0.3692870201096892
+
+
+
+Dla progu 7 :
+bez normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na treningowych: 0.7966134308254762
+Dokładność na testowych: 0.8015384615384615
+
+Precyzja na treningowych: 0.04097560975609756
+Precyzja: 0.04365079365079365
+
+Czułość na treningowych: 0.3620689655172414
+Czułość: 0.39285714285714285
+
+F1 na treningowych: 0.0736196319018405
+F1: 0.07857142857142857
+
+
+
+
+
+
+
+Dla progu 5 :
+dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na treningowych: 0.9395805272272465
+Dokładność na testowych: 0.9461538461538461
+
+Precyzja na treningowych: 0.9752
+Precyzja: 0.9816147082334132
+
+Czułość na treningowych: 0.96249506514015
+Czułość: 0.9631372549019608
+
+F1 na treningowych: 0.9688058811841844
+F1: 0.9722882026920031
+
+
+
+Dla progu 6 :
+dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na treningowych: 0.6211275736001539
+Dokładność na testowych: 0.6138461538461538
+
+Precyzja na treningowych: 0.6822916666666666
+Precyzja: 0.6419316843345112
+
+Czułość na treningowych: 0.7049699271921495
+Czułość: 0.7335127860026918
+
+F1 na treningowych: 0.6934454304841974
+F1: 0.6846733668341709
+
+
+
+
+Dla progu 7 :
+dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na treningowych: 0.6982874735424284
+Dokładność na testowych: 0.7169230769230769
+
+Precyzja na treningowych: 0.18146341463414634
+Precyzja: 0.21825396825396826
+
+Czułość na treningowych: 0.20327868852459016
+Czułość: 0.24336283185840707
+
+F1 na treningowych: 0.19175257731958764
+F1: 0.2301255230125523
+
+
+
+
+

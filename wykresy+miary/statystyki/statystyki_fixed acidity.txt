@@ -1,0 +1,3 @@
+Mean: 7.215307064799139, Median: 7.0, Mode: 6.8, Variance: 1.6807404883628896
+Minimalna wartosc: 3.8, maxymalna wartosc: 15.9
+Standard Deviation: 1.296433757799792, IQR: 1.2999999999999998, Range: 12.100000000000001

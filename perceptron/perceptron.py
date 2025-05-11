@@ -183,7 +183,7 @@ def wyniki_skala_mojaklasa(X,y,prog):
 
 
 
-X = pd.read_csv('dataset_clean.csv', sep=';')
+X = pd.read_csv('dane\dataset_clean.csv', sep=';')
 X.columns = X.columns.str.replace('"', '').str.strip()
 y = X['quality']
 X = X.drop(columns=["quality"])

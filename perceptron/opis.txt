@@ -1,0 +1,4 @@
+Perceptron to prosty matematyczny model neuronu. Składa się z n wyjść o n wagach, progu i wyjścia y.
+Jeśli suma zmiennych mnożonych przez wagi przkroczy próg, y osiąga odpowiednio 0/1.
+Wagi zaś są obliczane tak, by występował jak najmniejszy błąd czy procent złych rozwiązań, oczywiście na danych treningowych.
+Jest to dobra metoda klasyfikacji dla wielu zmiennnych, wyszukuje ona te z największym znaczeniem, a zarazem jes to metoda umiarkowanie wyjaśnialna.

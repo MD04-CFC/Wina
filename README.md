@@ -1,7 +1,7 @@
 # Wine classication
 
 # Project : wina
- project2 - MAD 2025 SGGW Computer Science: Maciej Dąbrowski, Jakub Dąbrowski, Lizaveta Brazynskaia, Oleksandr Babenkov
+ project2 - MAD 2025 SGGW Computer Science: Maciej Dąbrowski, Jakub Dąbrowski, Lizaveta Brazinskaya, Oleksandr Babenkov
 
 ## Purpose
 Our purpose is to find best classication solutions on wines dataset - with perceptron, regression, k neighbours, random forrest, decission tree, xgboost

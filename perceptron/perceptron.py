@@ -23,29 +23,22 @@ def wyniki(X, y, prog):
     y = np.array([int(x >= prog) for x in y])
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-
     clf = Perceptron(tol=1e-3, random_state=0)
     clf.fit(X, y)
-    
     y1_pred = clf.predict(X_train)
     y2_pred = clf.predict(X_test)
 
 
     print("Dla progu", prog, ":")
     print("bez normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-
     print("Dokładność na treningowych:", clf.score(X_train, y_train))   
     print("Dokładność na testowych:", clf.score(X_test, y_test))   
-    
     print()
     print("Precyzja na treningowych:", precision_score(y1_pred, y_train))
     print("Precyzja:", precision_score(y2_pred, y_test))
-
     print()
     print("Czułość na treningowych:", recall_score(y1_pred, y_train))
     print("Czułość:", recall_score(y2_pred, y_test))
-
     print()
     print("F1 na treningowych:", f1_score(y1_pred, y_train))
     print("F1:", f1_score(y2_pred, y_test))
@@ -57,38 +50,26 @@ def wyniki_mojaklasa(X,y,prog):
     #X = X.astype(float)                              
     y = y.values
     y = np.array([int(x >= prog) for x in y])
-    
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     clf = Perceptron_klasa(eta=0.004, epochs=1000, is_verbose=False)
     clf.fit(X_train, y_train)
-    
     y1_pred = clf.predict(X_train)
     y2_pred = clf.predict(X_test)
 
 
-    clf = Perceptron_klasa(eta=0.004, epochs=1000, is_verbose=False)
-    clf.fit(X, y)
-    
-    y1_pred = clf.predict(X_train)
-    y2_pred = clf.predict(X_test)
 
     print('mojaklasa')
     print("Dla progu", prog, ":")
     print("bez normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-
     print("Dokładność na treningowych:", clf.score(X_train, y_train))   
     print("Dokładność na testowych:", clf.score(X_test, y_test))   
-    
     print()
     print("Precyzja na treningowych:", precision_score(y1_pred, y_train))
     print("Precyzja:", precision_score(y2_pred, y_test))
-
     print()
     print("Czułość na treningowych:", recall_score(y1_pred, y_train))
     print("Czułość:", recall_score(y2_pred, y_test))
-
     print()
     print("F1 na treningowych:", f1_score(y1_pred, y_train))
     print("F1:", f1_score(y2_pred, y_test))
@@ -105,30 +86,23 @@ def wyniki_skala(X, y, prog):
     y = y.values
     y = np.array([int(x >= prog) for x in y])
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-
+    
     clf = Perceptron(tol=1e-3, random_state=0)
     clf.fit(X, y)
-    
     y1_pred = clf.predict(X_train)
     y2_pred = clf.predict(X_test)
 
 
     print("Dla progu", prog, ":")
     print("dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-
     print("Dokładność na treningowych:", clf.score(X_train, y_train))   
     print("Dokładność na testowych:", clf.score(X_test, y_test))   
-    
     print()
     print("Precyzja na treningowych:", precision_score(y1_pred, y_train))
     print("Precyzja:", precision_score(y2_pred, y_test))
-
     print()
     print("Czułość na treningowych:", recall_score(y1_pred, y_train))
     print("Czułość:", recall_score(y2_pred, y_test))
-
     print()
     print("F1 na treningowych:", f1_score(y1_pred, y_train))
     print("F1:", f1_score(y2_pred, y_test))
@@ -142,38 +116,25 @@ def wyniki_skala_mojaklasa(X,y,prog):
     X = (X - np.mean(X, axis=0)) / np.std(X, axis=0)                            
     y = y.values
     y = np.array([int(x >= prog) for x in y])
-    
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     clf = Perceptron_klasa(eta=0.004, epochs=1000, is_verbose=False)
     clf.fit(X_train, y_train)
-    
     y1_pred = clf.predict(X_train)
     y2_pred = clf.predict(X_test)
 
-
-    clf = Perceptron_klasa(eta=0.004, epochs=1000, is_verbose=False)
-    clf.fit(X, y)
-    
-    y1_pred = clf.predict(X_train)
-    y2_pred = clf.predict(X_test)
 
     print('mojaklasa')
     print("Dla progu", prog, ":")
     print("dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-
     print("Dokładność na treningowych:", clf.score(X_train, y_train))   
     print("Dokładność na testowych:", clf.score(X_test, y_test))   
-    
     print()
     print("Precyzja na treningowych:", precision_score(y1_pred, y_train))
     print("Precyzja:", precision_score(y2_pred, y_test))
-
     print()
     print("Czułość na treningowych:", recall_score(y1_pred, y_train))
     print("Czułość:", recall_score(y2_pred, y_test))
-
     print()
     print("F1 na treningowych:", f1_score(y1_pred, y_train))
     print("F1:", f1_score(y2_pred, y_test))
@@ -225,10 +186,58 @@ wyniki_skala_mojaklasa(X, y,7)
 
 
 
+def f1(X,y,prog, clf,czy_norm):
+    X = X.to_numpy(dtype=float)
+    if czy_norm == true:
+        X = (X - np.mean(X, axis=0)) / np.std(X, axis=0)                            
+    y = y.values
+    y = np.array([int(x >= prog) for x in y])
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    clf = Perceptron(tol=1e-3, random_state=0)
+    clf.fit(X, y)
+    y1_pred = clf.predict(X_train)
+    y2_pred = clf.predict(X_test)
+
+    print('mojaklasa')
+    print("Dla progu", prog, ":")
+    print("dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print("Dokładność na treningowych:", clf.score(X_train, y_train))   
+    print("Dokładność na testowych:", clf.score(X_test, y_test))   
+    print()
+    print("Precyzja na treningowych:", precision_score(y1_pred, y_train))
+    print("Precyzja:", precision_score(y2_pred, y_test))
+    print()
+    print("Czułość na treningowych:", recall_score(y1_pred, y_train))
+    print("Czułość:", recall_score(y2_pred, y_test))
+    print()
+    print("F1 na treningowych:", f1_score(y1_pred, y_train))
+    print("F1:", f1_score(y2_pred, y_test))
+
+
+
+
+model1 = Perceptron(tol=1e-3, random_state=0)
+model2 = Perceptron_klasa(eta=0.004, epochs=1000, is_verbose=False)
+f1(X,y,6,model1,true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 '''
-
 
 def wyniki_skala(prog):                      
     X = wine_quality.data.features

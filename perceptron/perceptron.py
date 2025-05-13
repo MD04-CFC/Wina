@@ -194,7 +194,6 @@ def f1(X,y,prog, clf,czy_norm):
     y = np.array([int(x >= prog) for x in y])
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    clf = Perceptron(tol=1e-3, random_state=0)
     clf.fit(X, y)
     y1_pred = clf.predict(X_train)
     y2_pred = clf.predict(X_test)

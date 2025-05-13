@@ -18,6 +18,41 @@ import pandas as pd
 
 
 
+
+
+def f1(X,y,prog, clf,czy_norm):
+    X = X.to_numpy(dtype=float)
+    if czy_norm == True:
+        X = (X - np.mean(X, axis=0)) / np.std(X, axis=0)                            
+    y = y.values
+    y = np.array([int(x >= prog) for x in y])
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    clf.fit(X, y)
+    y1_pred = clf.predict(X_train)
+    y2_pred = clf.predict(X_test)
+
+    if type(clf) == Perceptron_klasa:
+        print('mojaklasa')
+
+    print("Dla progu", prog, ":")
+    print("dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print("Dokładność na treningowych:", clf.score(X_train, y_train))   
+    print("Dokładność na testowych:", clf.score(X_test, y_test))   
+    print()
+    print("Precyzja na treningowych:", precision_score(y1_pred, y_train))
+    print("Precyzja:", precision_score(y2_pred, y_test))
+    print()
+    print("Czułość na treningowych:", recall_score(y1_pred, y_train))
+    print("Czułość:", recall_score(y2_pred, y_test))
+    print()
+    print("F1 na treningowych:", f1_score(y1_pred, y_train))
+    print("F1:", f1_score(y2_pred, y_test))
+
+
+
+
+
 def wyniki(X, y, prog):                    
     y = y.values
     y = np.array([int(x >= prog) for x in y])
@@ -149,7 +184,7 @@ X.columns = X.columns.str.replace('"', '').str.strip()
 y = X['quality']
 X = X.drop(columns=["quality"])
 
-
+'''
 wyniki(X, y, 5)
 print()
 wyniki(X, y, 6)
@@ -181,44 +216,17 @@ print()
 wyniki_skala_mojaklasa(X, y,7)
 
 
+'''
 
 
 
-
-
-def f1(X,y,prog, clf,czy_norm):
-    X = X.to_numpy(dtype=float)
-    if czy_norm == true:
-        X = (X - np.mean(X, axis=0)) / np.std(X, axis=0)                            
-    y = y.values
-    y = np.array([int(x >= prog) for x in y])
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    clf.fit(X, y)
-    y1_pred = clf.predict(X_train)
-    y2_pred = clf.predict(X_test)
-
-    print('mojaklasa')
-    print("Dla progu", prog, ":")
-    print("dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    print("Dokładność na treningowych:", clf.score(X_train, y_train))   
-    print("Dokładność na testowych:", clf.score(X_test, y_test))   
-    print()
-    print("Precyzja na treningowych:", precision_score(y1_pred, y_train))
-    print("Precyzja:", precision_score(y2_pred, y_test))
-    print()
-    print("Czułość na treningowych:", recall_score(y1_pred, y_train))
-    print("Czułość:", recall_score(y2_pred, y_test))
-    print()
-    print("F1 na treningowych:", f1_score(y1_pred, y_train))
-    print("F1:", f1_score(y2_pred, y_test))
 
 
 
 
 model1 = Perceptron(tol=1e-3, random_state=0)
 model2 = Perceptron_klasa(eta=0.004, epochs=1000, is_verbose=False)
-f1(X,y,6,model1,true)
+f1(X,y,6,model2,True)
 
 
 

@@ -6,7 +6,7 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score
 from sklearn.metrics import precision_score
-from sklearn.metrics import recall_score
+from sklearn.metrics import recall_score,confusion_matrix
 from sklearn.linear_model import Perceptron
 from peceptron_klasa import Perceptron as Perceptron_klasa
 import pandas as pd
@@ -48,6 +48,17 @@ def f1(X,y,prog, clf,czy_norm):
     print()
     print("F1 na treningowych:", f1_score(y1_pred, y_train))
     print("F1:", f1_score(y2_pred, y_test))
+
+    cm = confusion_matrix(y_test, y2_pred)
+    plt.figure(figsize=(5, 4))
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=["słabe", "dobre"], yticklabels=["słabe", "dobre"])
+    plt.title("Macierz pomyłek (0 = słabe, 1 = dobre)")
+    plt.xlabel("Przewidywane")
+    plt.ylabel("Rzeczywiste")
+    plt.tight_layout()
+    plt.show()
+
+    
 
 
 
@@ -174,6 +185,8 @@ def wyniki_skala_mojaklasa(X,y,prog):
     print("F1 na treningowych:", f1_score(y1_pred, y_train))
     print("F1:", f1_score(y2_pred, y_test))
 
+    
+
 
 
 
@@ -226,7 +239,9 @@ wyniki_skala_mojaklasa(X, y,7)
 
 model1 = Perceptron(tol=1e-3, random_state=0)
 model2 = Perceptron_klasa(eta=0.004, epochs=1000, is_verbose=False)
-f1(X,y,6,model2,True)
+f1(X,y,5,model1,True)
+f1(X,y,6,model1,True)
+f1(X,y,7,model1,True)
 
 
 

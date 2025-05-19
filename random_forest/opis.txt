@@ -1,0 +1,32 @@
+Random Forest – opis metody i jej zastosowanie do klasyfikacji jakości wina
+
+Random Forest (losowy las) to metoda uczenia maszynowego należąca do grupy algorytmów zespołowych (ensemble learning).
+Polega na budowie wielu drzew decyzyjnych, z których każdy uczy się na losowo wybranej próbce danych i na losowym podzbiorze cech.
+Ostateczna decyzja modelu to "głosowanie większościowe" – wynik, który pojawił się najczęściej wśród wszystkich drzew, staje się przewidywaniem modelu.
+
+Zalety Random Forest:
+
+ ✅ Wysoka dokładność: Dzięki łączeniu wielu drzew decyzyjnych model może osiągać bardzo dobrą skuteczność.
+ ✅ Odporność na przeuczenie (overfitting): Losowość i uśrednianie wyników sprawiają, że model lepiej generalizuje do danych testowych.
+ ✅ Dobrze radzi sobie z danymi nieliniowymi: Nie zakłada liniowej zależności między cechami a wynikiem,
+    co jest często prawdziwe w rzeczywistych danych, takich jak jakość wina.
+ ✅ Automatyczna selekcja cech: Model sam określa, które cechy mają największe znaczenie dla decyzji.
+
+Wady Random Forest:
+
+ ❌ Trudność w interpretacji: W przeciwieństwie do prostych modeli (np. regresji liniowej),
+    Random Forest działa jak "czarna skrzynka" – trudno wyjaśnić, dlaczego podjął daną decyzję.
+ ❌ Duża złożoność obliczeniowa: Budowanie i przetwarzanie wielu drzew może być czasochłonne i wymagać sporej mocy obliczeniowej.
+ ❌ Nierównowaga klas: Jeśli w danych są klasy bardzo rzadkie (np. bardzo dobre wina), model może je ignorować,
+    ponieważ optymalizuje ogólną skuteczność, a nie sprawiedliwe traktowanie wszystkich klas.
+
+Random Forest a jakość wina:
+
+Dane o jakości wina zawierają wiele cech chemicznych, które mogą nieliniowo wpływać na końcową ocenę.
+Random Forest dobrze sobie radzi z takim typem danych, ponieważ uwzględnia złożone zależności i interakcje między zmiennymi.
+Jednak ze względu na to, że klasy (np. jakość 3, 4, 9) mogą być bardzo rzadkie,
+model może mieć problem z ich prawidłowym rozpoznawaniem – co potwierdzają ostrzeżenia o zerowej precyzji w Twoich wynikach.
+
+ W takich przypadkach pomocne może być przekształcenie problemu na **klasyfikację binarną** (np. dobre vs. złe wino),
+co pozwala lepiej zoptymalizować model.
+

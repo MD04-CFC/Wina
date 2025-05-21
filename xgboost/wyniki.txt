@@ -1,0 +1,86 @@
+-- Random Forest Results for Threshold: 5 | Normalized: True ---
+Train Accuracy: 0.987
+Test Accuracy: 0.958
+
+Train Precision: 0.987
+Test Precision: 0.964
+
+Train Recall: 1.000
+Test Recall: 0.994
+
+Train F1 Score: 0.993
+Test F1 Score: 0.979
+
+
+--- Random Forest Results for Threshold: 6 | Normalized: True ---
+Train Accuracy: 0.902
+Test Accuracy: 0.788
+
+Train Precision: 0.913
+Test Precision: 0.830
+
+Train Recall: 0.934
+Test Recall: 0.848
+
+Train F1 Score: 0.923
+Test F1 Score: 0.839
+
+
+--- Random Forest Results for Threshold: 7 | Normalized: True ---
+Train Accuracy: 0.949
+Test Accuracy: 0.872
+
+Train Precision: 0.946
+Test Precision: 0.759
+
+Train Recall: 0.784
+Test Recall: 0.500
+
+Train F1 Score: 0.858
+Test F1 Score: 0.603
+
+
+
+
+
+
+--- Random Forest Results for Threshold: 5 | Normalized: False ---
+Train Accuracy: 0.987
+Test Accuracy: 0.958
+
+Train Precision: 0.987
+Test Precision: 0.964
+
+Train Recall: 1.000
+Test Recall: 0.994
+
+Train F1 Score: 0.993
+Test F1 Score: 0.979
+
+
+--- Random Forest Results for Threshold: 6 | Normalized: False ---
+Train Accuracy: 0.902
+Test Accuracy: 0.788
+
+Train Precision: 0.913
+Test Precision: 0.830
+
+Train Recall: 0.934
+Test Recall: 0.848
+
+Train F1 Score: 0.923
+Test F1 Score: 0.839
+
+
+--- Random Forest Results for Threshold: 7 | Normalized: False ---
+Train Accuracy: 0.949
+Test Accuracy: 0.872
+
+Train Precision: 0.946
+Test Precision: 0.759
+
+Train Recall: 0.784
+Test Recall: 0.500
+
+Train F1 Score: 0.858
+Test F1 Score: 0.603

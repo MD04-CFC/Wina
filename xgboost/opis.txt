@@ -1,0 +1,54 @@
+Opis metody: XGBoost
+
+XGBoost (Extreme Gradient Boosting) to zaawansowana technika uczenia maszynowego oparta na metodzie boosting,
+która iteracyjnie buduje modele (głównie drzewa decyzyjne), korygując błędy poprzednich.
+Celem XGBoost jest minimalizacja funkcji straty przy jednoczesnej regularyzacji, co pozwala na wysoką skuteczność i odporność na przeuczenie.
+
+Zalety XGBoost:
+
+    Bardzo wydajny i szybki, dzięki optymalizacjom sprzętowym i równoległemu uczeniu.
+
+    Wysoka dokładność na różnorodnych problemach klasyfikacyjnych i regresyjnych.
+
+    Obsługuje brakujące dane oraz umożliwia zaawansowane opcje regularyzacji (L1, L2).
+
+    Dobry w problemach z niezrównoważonymi klasami – można używać scale_pos_weight.
+
+Wady XGBoost:
+
+    Jest bardziej złożony niż np. Random Forest — trudniejszy do interpretacji.
+
+
+
+Próg = 5
+
+    Dokładność testowa: 95.8%, F1: 0.979
+
+    Model bardzo dobrze oddziela próbki gorszej i lepszej jakości przy progu 5 — dane są dobrze rozdzielone.
+
+    Wysoka precyzja i czułość, także na zbiorze testowym — model nie jest przeuczony, ale dobrze uogólnia.
+
+Próg = 6
+
+    Dokładność testowa: 78.8%, F1: 0.839
+
+    Model nadal działa dobrze, choć dokładność i F1 spadają.
+
+    Wskazuje to, że granica jakości = 6 jest trudniejsza do rozróżnienia – cechy nie rozdzielają już tak dobrze klas.
+
+Próg = 7
+
+    Dokładność testowa: 87.2%, ale F1: 0.603
+
+    Mimo wysokiej dokładności, czułość na testowych spada do 0.50 – model pomija wiele prawdziwych przypadków klasy „dobre wino”.
+
+    Może to wskazywać na niedostateczną liczbę przykładów w klasie ≥ 7 lub brak wyraźnych różnic w cechach.
+
+🧠 Wnioski
+
+    XGBoost sprawdza się najlepiej przy klasyfikacji z progiem jakości 5 – klasy są łatwo rozróżnialne.
+
+    Dla wyższych progów (np. 7) model ma trudności z generalizacją — można spróbować dostosować scale_pos_weight, zastosować inne metryki (np. AUC),
+    lub zastosować oversampling mniejszościowej klasy (np. SMOTE).
+
+    Normalizacja nie miała wpływu na wyniki, co jest typowe dla drzewiastych modeli (jak XGBoost), które nie wymagają skalowania danych.

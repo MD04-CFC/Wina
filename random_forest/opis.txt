@@ -1,6 +1,4 @@
-Random Forest – opis metody i jej zastosowanie do klasyfikacji jakości wina
-
-Random Forest (losowy las) to metoda uczenia maszynowego należąca do grupy algorytmów zespołowych (ensemble learning).
+Random Forest to metoda uczenia maszynowego należąca do grupy algorytmów zespołowych (ensemble learning).
 Polega na budowie wielu drzew decyzyjnych, z których każdy uczy się na losowo wybranej próbce danych i na losowym podzbiorze cech.
 Ostateczna decyzja modelu to "głosowanie większościowe" – wynik, który pojawił się najczęściej wśród wszystkich drzew, staje się przewidywaniem modelu.
 
@@ -25,8 +23,5 @@ Random Forest a jakość wina:
 Dane o jakości wina zawierają wiele cech chemicznych, które mogą nieliniowo wpływać na końcową ocenę.
 Random Forest dobrze sobie radzi z takim typem danych, ponieważ uwzględnia złożone zależności i interakcje między zmiennymi.
 Jednak ze względu na to, że klasy (np. jakość 3, 4, 9) mogą być bardzo rzadkie,
-model może mieć problem z ich prawidłowym rozpoznawaniem – co potwierdzają ostrzeżenia o zerowej precyzji w Twoich wynikach.
-
- W takich przypadkach pomocne może być przekształcenie problemu na **klasyfikację binarną** (np. dobre vs. złe wino),
-co pozwala lepiej zoptymalizować model.
+model może mieć problem z ich prawidłowym rozpoznawaniem.
 

@@ -96,7 +96,7 @@ def cal_skal(prog,a):
 
 
 
-    fprint("Dla progu", prog, ":")
+    print("Dla progu", prog, ":")
     print("dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")  
     print("Dokładność na testowych:", accuracy_score(hybrid_preds, y_test))   
     print()

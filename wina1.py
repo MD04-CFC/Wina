@@ -7,6 +7,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import f1_score
 from sklearn.model_selection import cross_val_score
+from sklearn.metrics import f1_score
+from sklearn.metrics import precision_score,accuracy_score
+from sklearn.metrics import recall_score,confusion_matrix
 from sklearn.model_selection import train_test_split
 
 # fetch dataset 
@@ -35,8 +38,8 @@ def cal(prog,a):
 
 
     model = KNeighborsClassifier(n_neighbors=5)
-    model.fit(X_train, y_train)
-    probs_knn = model.predict_proba(X_test)
+    model.fit(X_train2, y_train)
+    probs_knn = model.predict_proba(X_test2)
 
 
     hybrid_probs = 0.4 * probs_logreg + 0.4 * probs_rf + 0.2 * probs_knn
@@ -44,13 +47,19 @@ def cal(prog,a):
 
 
 
+    print("Dla progu", prog, ":")
+    print("bez normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")  
+    print("Dokładność na testowych:", accuracy_score(hybrid_preds, y_test))   
+    print()
+    print("Precyzja:", precision_score(hybrid_preds, y_test))
+    print()
+    print("Czułość:", recall_score(hybrid_preds, y_test))
+    print()
     f1 = f1_score(y_test, hybrid_preds)
     print(f"F1 Score: {f1:.2f}")
-
-
-
+  
     scores = cross_val_score(RandomForestClassifier(), X, y, cv=5, scoring='f1')
-    print(f"F1 Score średni: {np.mean(scores):.2f}")
+    print(f"F1 Score średni dla lasu losowego: {np.mean(scores):.2f}")
 
 
 
@@ -78,8 +87,8 @@ def cal_skal(prog,a):
 
 
     model = KNeighborsClassifier(n_neighbors=5)
-    model.fit(X_train, y_train)
-    probs_knn = model.predict_proba(X_test)
+    model.fit(X_train2, y_train)
+    probs_knn = model.predict_proba(X_test2)
 
 
     hybrid_probs = 0.4 * probs_logreg + 0.4 * probs_rf + 0.2 * probs_knn
@@ -87,13 +96,19 @@ def cal_skal(prog,a):
 
 
 
+    fprint("Dla progu", prog, ":")
+    print("dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")  
+    print("Dokładność na testowych:", accuracy_score(hybrid_preds, y_test))   
+    print()
+    print("Precyzja:", precision_score(hybrid_preds, y_test))
+    print()
+    print("Czułość:", recall_score(hybrid_preds, y_test))
+    print()
     f1 = f1_score(y_test, hybrid_preds)
     print(f"F1 Score: {f1:.2f}")
-
-
-
+  
     scores = cross_val_score(RandomForestClassifier(), X, y, cv=5, scoring='f1')
-    print(f"F1 Score średni: {np.mean(scores):.2f}")
+    print(f"F1 Score średni dla lasu losowego: {np.mean(scores):.2f}")
 
 
 

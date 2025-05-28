@@ -1,0 +1,60 @@
+
+Współczynniki dla progu 5:
+Współczynniki: [[-0.00952478 -2.54473081  0.21720951  0.05230602  0.02449202  0.05439533
+  -0.00997867 -0.18442049  0.0632442   2.13231043  0.26546678]]
+Wyraz wolny: [-0.23286926]
+
+Dokładność na treningowych: 0.9622859341928035
+Dokładność na testowych: 0.9623076923076923
+
+Precyzja na treningowych: 1.0
+Precyzja: 1.0
+
+Czułość na treningowych: 0.962278675904542
+Czułość: 0.9623076923076923
+
+F1 na treningowych: 0.9807767752059631
+F1: 0.9807918463347707
+
+
+
+
+
+
+Współczynniki dla progu 6:
+Współczynniki: [[-0.12056993 -4.75659522 -0.28628276  0.05291867 -0.42156177  0.01851637
+  -0.01005542 -1.55667712 -1.33662218  2.21434779  0.94948936]]
+Wyraz wolny: [-1.65004513]
+
+Dokładność na treningowych: 0.7411968443332692
+Dokładność na testowych: 0.7338461538461538
+
+Precyzja na treningowych: 0.8385416666666666
+Precyzja: 0.817432273262662
+
+Czułość na treningowych: 0.769901547116737
+Czułość: 0.784180790960452
+
+F1 na treningowych: 0.8027570024930342
+F1: 0.8004613610149942
+
+
+
+
+
+Współczynniki dla progu 7:
+Współczynniki: [[-0.18071911 -3.13656173  0.79592375  0.03316331 -0.44797804  0.01532374
+  -0.0080442  -1.34855708 -1.75570897  1.82934313  0.76917281]]
+Wyraz wolny: [-1.39912118]
+
+Dokładność na treningowych: 0.8114296709640177
+Dokładność na testowych: 0.8115384615384615
+
+Precyzja na treningowych: 0.22341463414634147
+Precyzja: 0.1746031746031746
+
+Czułość na treningowych: 0.5544794188861986
+Czułość: 0.5432098765432098
+
+F1 na treningowych: 0.3184979137691238
+F1: 0.26426426426426425

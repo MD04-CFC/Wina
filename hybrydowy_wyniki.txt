@@ -1,0 +1,40 @@
+Dla progu 5 :
+dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na testowych: 0.9623076923076923
+
+Precyzja: 1.0
+
+Czułość: 0.9623076923076923
+
+F1 Score: 0.98
+Crosswalidacja dla lasu losowego: 0.98
+
+
+
+
+
+Dla progu 6 :
+dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na testowych: 0.803076923076923
+
+Precyzja: 0.8645465253239105
+
+Czułość: 0.8388571428571429
+
+F1 Score: 0.85
+Crosswalidacja dla lasu losowego: 0.68
+
+
+
+
+
+Dla progu 7 :
+dla normalizacji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Dokładność na testowych: 0.8723076923076923
+
+Precyzja: 0.44841269841269843
+
+Czułość: 0.8071428571428572
+
+F1 Score: 0.58
+Crosswalidacja dla lasu losowego: 0.32

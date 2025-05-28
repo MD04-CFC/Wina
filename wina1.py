@@ -17,19 +17,18 @@ wine_quality = fetch_ucirepo(id=186)
   
 
 
-def cal(prog,a):                                                                        
+def cal(prog):                                                                        
     X = wine_quality.data.features 
     y = wine_quality.data.targets
     y = y.values
     y = np.array([int(x >= prog) for x in y])
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    X_train2 = X_train[[a]].values
-    X_test2 = X_test[[a]].values    
+ 
 
 
     logr = linear_model.LogisticRegression()
-    logr.fit(X_train2, y_train)
-    probs_logreg = logr.predict_proba(X_test2)
+    logr.fit(X_train, y_train)
+    probs_logreg = logr.predict_proba(X_test)
 
 
     model = RandomForestClassifier()
@@ -38,8 +37,8 @@ def cal(prog,a):
 
 
     model = KNeighborsClassifier(n_neighbors=5)
-    model.fit(X_train2, y_train)
-    probs_knn = model.predict_proba(X_test2)
+    model.fit(X_train, y_train)
+    probs_knn = model.predict_proba(X_test)
 
 
     hybrid_probs = 0.4 * probs_logreg + 0.4 * probs_rf + 0.2 * probs_knn
@@ -59,26 +58,25 @@ def cal(prog,a):
     print(f"F1 Score: {f1:.2f}")
   
     scores = cross_val_score(RandomForestClassifier(), X, y, cv=5, scoring='f1')
-    print(f"F1 Score średni dla lasu losowego: {np.mean(scores):.2f}")
+    print(f"Crosswalidacja dla lasu losowego: {np.mean(scores):.2f}")
 
 
 
 
 
-def cal_skal(prog,a):                                                                        
+def cal_skal(prog):                                                                        
     X = wine_quality.data.features 
     y = wine_quality.data.targets
     y = y.values
     y = np.array([int(x >= prog) for x in y])
     X = (X - np.mean(X, axis=0)) / np.std(X, axis=0)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    X_train2 = X_train[[a]].values
-    X_test2 = X_test[[a]].values    
+    
 
 
     logr = linear_model.LogisticRegression()
-    logr.fit(X_train2, y_train)
-    probs_logreg = logr.predict_proba(X_test2)
+    logr.fit(X_train, y_train)
+    probs_logreg = logr.predict_proba(X_test)
 
 
     model = RandomForestClassifier()
@@ -87,8 +85,8 @@ def cal_skal(prog,a):
 
 
     model = KNeighborsClassifier(n_neighbors=5)
-    model.fit(X_train2, y_train)
-    probs_knn = model.predict_proba(X_test2)
+    model.fit(X_train, y_train)
+    probs_knn = model.predict_proba(X_test)
 
 
     hybrid_probs = 0.4 * probs_logreg + 0.4 * probs_rf + 0.2 * probs_knn
@@ -108,8 +106,10 @@ def cal_skal(prog,a):
     print(f"F1 Score: {f1:.2f}")
   
     scores = cross_val_score(RandomForestClassifier(), X, y, cv=5, scoring='f1')
-    print(f"F1 Score średni dla lasu losowego: {np.mean(scores):.2f}")
+    print(f"Crosswalidacja dla lasu losowego: {np.mean(scores):.2f}")
+    
 
 
-
-print(cal(6,'alcohol'))
+cal_skal(5)
+cal_skal(6)
+cal_skal(7)

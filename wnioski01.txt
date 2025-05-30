@@ -1,0 +1,119 @@
+Najlepsze wyniki spośród zastosowanych metod uzyskano dla lasów losowych, a optymalnym progiem klasyfikacyjnym okazała się wartość 5. Może to być uzasadnione charakterem rozkładu danych – przypominającego rozkład normalny (Gaussa) z lekkim przesunięciem i asymetrią.
+
+Modele wykazują niewielkie różnice po zastosowaniu normalizacji. Największe zmiany zaobserwowano w perceptronie dla utworzonej klasy oraz w modelu KNN. W większości przypadków różnice te nie były jednak istotne statystycznie (na podstawie testów permutacyjnych, testu t-Studenta oraz testu AB).
+
+Najistotniejsze zmienne to:
+-alcohol
+-citric_acid
+-volatile_acidity
+
+
+
+Wszystkie zastosowane modele wskazują na wyraźne wzorce, w których te zmienne odgrywają kluczową rolę. Dane są w wielu przypadkach dyskretne, co przekłada się na ich uporządkowaną strukturę (np. zauważalna powtarzalność wyników, stabilność wybranych zmiennych oraz relatywna spójność modeli).
+
+Modele KNN i regresji dają typowe, zgodne z teorią wykresy poglądowe, co potwierdza umiarkowaną spójność danych.
+
+Przewaga lasów losowych może wynikać ze średniej liniowości danych, pozornie widocznej lepiej przy niższych progach liczbowych (patrz: rozdział 2 – [odnośnik]), jak i z ogólnej wysokiej skuteczności tej metody w innych przypadkach.
+Istnienie całego lasu poprawia błędy pojedynczego drzewa, dając lepsze wyniki klasyfikacji, mimo obniżenia wyjaśnialności. 
+
+Z drugiej strony, regresja logistyczna ukazuje rzeczywisty spadek prawdopodobieństwa klasy 1, a drzewa decyzyjne wskazują, że niektóre zmienne przyjmują dwa zakresy ograniczeń, co przeczy istnieniu prostej, rosnącej zależności liniowej.
+
+
+
+
+Podsumowując, udało się znaleźć optymalne zmienne, próg i metodę - warte uwagi przy głębszej analizie.
+
+
+
+
+
+
+
+
+[do 2. ]!!!!!!
+
+
+(minimalne progi liczbowe dla różnych progów (>= ==> 1/0) tak by było pokrycie większościowe)
+
+
+
+Znalezione progi dla większości przypadków quality >= 8:
+
+fixed acidity >= 3.9000
+volatile acidity >= 0.1200
+citric acid >= 0.0300
+residual sugar >= 0.8000
+chlorides >= 0.0140
+free sulfur dioxide >= 3.0000
+total sulfur dioxide >= 12.0000
+density >= 0.9871
+pH >= 2.8800
+sulphates >= 0.2500
+alcohol >= 8.5000
+
+Liczba rekordów w X: 198
+Liczba rekordów spełniających wszystkie warunki: 198
+
+
+
+
+
+Znalezione progi dla większości przypadków quality >= 7:
+
+fixed acidity >= 3.9000
+volatile acidity >= 0.0800
+citric acid >= 0.0000
+residual sugar >= 0.8000
+chlorides >= 0.0120
+free sulfur dioxide >= 3.0000
+total sulfur dioxide >= 7.0000
+density >= 0.9871
+pH >= 2.8400
+sulphates >= 0.2200
+alcohol >= 8.5000
+
+Liczba rekordów w X_7: 1277
+Liczba rekordów spełniających wszystkie warunki: 1277
+
+
+
+
+
+
+Znalezione progi dla większości przypadków quality >= 6:
+
+fixed acidity >= 3.8000
+volatile acidity >= 0.0800
+citric acid >= 0.0000
+residual sugar >= 0.7000
+chlorides >= 0.0120
+free sulfur dioxide >= 1.0000
+total sulfur dioxide >= 6.0000
+density >= 0.9871
+pH >= 2.7200
+sulphates >= 0.2200
+alcohol >= 8.4000
+
+Liczba rekordów w X: 4113
+Liczba rekordów spełniających wszystkie warunki: 4113
+
+
+
+
+
+Znalezione progi dla większości przypadków quality >= 5:
+
+fixed acidity >= 3.8000
+volatile acidity >= 0.0800
+citric acid >= 0.0000
+residual sugar >= 0.6000
+chlorides >= 0.0090
+free sulfur dioxide >= 1.0000
+total sulfur dioxide >= 6.0000
+density >= 0.9871
+pH >= 2.7200
+sulphates >= 0.2200
+alcohol >= 8.0000
+
+Liczba rekordów w X: 6251
+Liczba rekordów spełniających wszystkie warunki: 6251

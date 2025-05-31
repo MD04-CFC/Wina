@@ -185,6 +185,11 @@ wspolczynniki(5)
 wspolczynniki(6)
 wspolczynniki(7)
 
+rysuj('sulphates',7)
+rysuj('pH',7)
+rysuj('sulphates',6)
+
+
 
 
 

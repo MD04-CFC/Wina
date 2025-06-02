@@ -7,42 +7,24 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import Perceptron
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
+from sklearn import linear_model
 
-def f1(X, y, X_wlasne, y_wlasne, prog, model, czy_norm):
+def f1(X, y, X_wlasne, prog, model):
     # Convert to numpy arrays
     X = X.to_numpy(dtype=float)
     X_wlasne = X_wlasne.to_numpy(dtype=float)
 
-    # ✅ Binarize both y and y_wlasne using the threshold (e.g. >= 5)
     y = np.array([int(val >= prog) for val in y])
-    y_wlasne = np.array([int(val >= prog) for val in y_wlasne])
 
-    # ✅ Normalize features (NOT labels)
-    if czy_norm:
-        mean = np.mean(X, axis=0)
-        std = np.std(X, axis=0)
-        std[std == 0] = 1e-8  # prevent division by zero
-        X = (X - mean) / std
-        X_wlasne = (X_wlasne - mean) / std
-
-    # Split just for training (you test on your own data)
-    X_train, _, y_train, _ = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    model.fit(X_train, y_train)
+    model.fit(X, y)
     y_pred = model.predict(X_wlasne)
 
-    # ✅ Now safe to use binary metrics
-    print(f"\n--- Drzewo decyzyjne Results | Threshold: {prog} | Normalized: {czy_norm} ---")
-    print(f"Accuracy:  {accuracy_score(y_wlasne, y_pred):.3f}")
-    print(f"Precision: {precision_score(y_wlasne, y_pred, zero_division=0):.3f}")
-    print(f"Recall:    {recall_score(y_wlasne, y_pred, zero_division=0):.3f}")
-    print(f"F1 Score:  {f1_score(y_wlasne, y_pred, zero_division=0):.3f}")
+    print(y_pred)
 
 # === Data Loading ===
 
 # Your own observations (test)
 X_wlasne = pd.read_csv('A:\\disk_S\\homework_sggw\\projekt_mad2\\Wina\\dane\\artificial_wine_observations.csv', delimiter=',')
-y_wlasne = X_wlasne['quality']
 X_wlasne = X_wlasne.drop(columns=["quality"])
 
 # Training dataset
@@ -55,8 +37,22 @@ model0 = xgb.XGBClassifier(n_estimators=100, learning_rate=0.1, eval_metric='log
 model1 = RandomForestClassifier(n_estimators=100, random_state=42)
 
 model2 = Perceptron(tol=1e-3, random_state=0)
-model3 = KNeighborsClassifier(n_neighbors=3)
+model3 = KNeighborsClassifier(n_neighbors=10)
 model4 = DecisionTreeClassifier(max_depth=3, min_samples_leaf=10, random_state=42)
 
-# Run
-f1(X, y, X_wlasne, y_wlasne, prog=5, model=model4, czy_norm=False)
+model5 = linear_model.LogisticRegression()
+
+models = [model0, model1, model2, model3, model4, model5]
+
+from sklearn.preprocessing import StandardScaler
+
+# Scale both training and test data
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+X_wlasne_scaled = scaler.transform(X_wlasne)
+
+# Replace your for-loop with this
+for m in models:
+    print(f"--- {m.__class__.__name__} ---")
+    f1(pd.DataFrame(X_scaled), y, pd.DataFrame(X_wlasne_scaled), prog=6, model=m)
+

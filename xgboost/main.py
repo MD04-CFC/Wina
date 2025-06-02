@@ -18,7 +18,7 @@ import xgboost as xgb
 
 
 
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score
 
 def f1(X, y, prog, model, czy_norm):
     X = X.to_numpy(dtype=float)
